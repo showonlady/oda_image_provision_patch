@@ -1,0 +1,407 @@
+{
+  "rwsoda405c1n1": {
+    "nodename": ["rwsoda405c1n1","rwsoda405c1n2"],
+    "ilom": ["rwsoda4051-c", "rwsoda4052-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"154",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.96.84", "10.214.96.85"]
+    }
+  },
+  "rwsoda406c1n1": {
+    "nodename": ["rwsoda406c1n1","rwsoda406c1n2"],
+    "ilom": ["rwsoda4061-c", "rwsoda4062-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {
+      "vlanid": "156",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.96.116","10.214.96.117"]
+    }
+  },
+   "rwsoda408c1n1": {
+    "nodename": ["rwsoda408c1n1","rwsoda408c1n2"],
+    "ilom": ["rwsoda4081-c", "rwsoda4082-c"],
+    "jbod": 2,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"157",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.96.132", "10.214.96.133"]
+    }
+  },
+  "rwsoda411c1n1": {
+    "nodename": ["rwsoda411c1n1","rwsoda411c1n2"],
+    "ilom": ["rwsoda4111-c", "rwsoda4112-c"],
+    "jbod": 2,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"160",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.96.180", "10.214.96.181"]
+    }
+  },
+  "rwsoda412c1n1": {
+    "nodename": ["rwsoda412c1n1","rwsoda412c1n2"],
+    "ilom": ["rwsoda4121-c", "rwsoda4122-c"],
+    "jbod": 2,
+    "netmask": "255.255.248.0",
+    "vlan": {"vlanid":"161",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.96.196", "10.214.96.197"]
+    }
+  },
+  "rwsoda407c1n1": {
+    "nodename": ["rwsoda407c1n1","rwsoda407c1n2"],
+    "ilom": ["rwsoda4071-c", "rwsoda4072-c"],
+    "jbod": 2,
+    "netmask": "255.255.248.0",
+    "vlan": {"vlanid":"156",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.96.116", "10.214.96.117"]
+    }
+  },
+  "scaoda704c1n1": {
+    "nodename": ["scaoda704c1n1","scaoda704c1n2"],
+    "ilom": ["scaoda7041-c", "scaoda7042-c"],
+    "jbod": 2,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"135",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.130.36", "10.31.130.37"]
+    }
+  },
+  "scaoda709c1n1": {
+    "nodename": ["scaoda709c1n1","scaoda709c1n2"],
+    "ilom": ["scaoda7091-c", "scaoda7092-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "scaoda701c1n1": {
+    "nodename": ["scaoda701c1n1","scaoda701c1n2"],
+    "ilom": ["scaoda7011-c", "scaoda7012-c"],
+    "jbod": 2,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"134",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.130.20", "10.31.130.21"]
+    }
+  },
+  "scaoda702c1n1": {
+    "nodename": ["scaoda702c1n1","scaoda702c1n2"],
+    "ilom": ["scaoda7021-c", "scaoda7022-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "scaoda706c1n1": {
+    "nodename": ["scaoda706c1n1","scaoda706c1n2"],
+    "ilom": ["scaoda7061-c", "scaoda7062-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "rwsoda6s005": {
+    "nodename": ["rwsoda6s005"],
+    "ilom": ["rwsoda6s005-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"358",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.55"]
+    }
+  },
+  "rwsoda6s006": {
+    "nodename": ["rwsoda6s006"],
+    "ilom": ["rwsoda6s006-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "scaoda7m005": {
+    "nodename": ["scaoda7m005"],
+    "ilom": ["scaoda7m005-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"127",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.129.165"]
+    }
+  },
+  "scaoda7s005": {
+    "nodename": ["scaoda7s005"],
+    "ilom": ["scaoda7s005-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"132",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.129.245"]
+    }
+  },
+  "scaoda7s006": {
+    "nodename": ["scaoda7s006"],
+    "ilom": ["scaoda7s006-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "scaoda7s008": {
+    "nodename": ["scaoda7s008"],
+    "ilom": ["scaoda7s008-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"130",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.129.213"]
+    }
+  },
+  "scaoda7s004": {
+    "nodename": ["scaoda7s004"],
+    "ilom": ["scaoda7s004-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "scaoda7s001": {
+    "nodename": ["scaoda7s001"],
+    "ilom": ["scaoda7s001-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"124",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.129.116"]
+    }
+  },
+  "scaoda8s001": {
+    "nodename": ["scaoda8s001"],
+    "ilom": ["scaoda8s001-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "scaoda8s003": {
+    "nodename": ["scaoda8s003"],
+    "ilom": ["scaoda8s003-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "scaoda8m008": {
+    "nodename": ["scaoda8m008"],
+    "ilom": ["scaoda8m008-c"],
+    "jbod": 1,
+    "netmask": "255.255.254.0"
+  },
+  "scaoda8m009": {
+    "nodename": ["scaoda8m009"],
+    "ilom": ["scaoda8m009-c"],
+    "jbod": 1,
+    "netmask": "255.255.254.0"
+  },
+  "scaoda8m010": {
+    "nodename": ["scaoda8m010"],
+    "ilom": ["scaoda8m010-c"],
+    "jbod": 1,
+    "netmask": "255.255.254.0"
+  },
+  "scaoda8m011": {
+    "nodename": ["scaoda8m011"],
+    "ilom": ["scaoda8m011-c"],
+    "jbod": 1,
+    "netmask": "255.255.254.0"
+  },
+  "scaoda807c1n1": {
+    "nodename": ["scaoda807c1n1","scaoda807c1n2"],
+    "ilom": ["scaoda8071-c", "scaoda8072-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "scaoda808c1n1": {
+    "nodename": ["scaoda808c1n1","scaoda808c1n2"],
+    "ilom": ["scaoda8081-c", "scaoda8082-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "scaoda809c1n1": {
+    "nodename": ["scaoda809c1n1","scaoda809c1n2"],
+    "ilom": ["scaoda8091-c", "scaoda8092-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "scaoda810c1n1": {
+    "nodename": ["scaoda810c1n1","scaoda810c1n2"],
+    "ilom": ["scaoda8101-c", "scaoda8102-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "scaoda814c1n1": {
+    "nodename": ["scaoda814c1n1","scaoda814c1n2"],
+    "ilom": ["scaoda8141-c", "scaoda8142-c"],
+    "jbod": 1,
+    "netmask": "255.255.248.0"
+  },
+  "scaoda803c1n1": {
+    "nodename": ["scaoda803c1n1","scaoda803c1n2"],
+    "ilom": ["scaoda8031-c", "scaoda8032-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+
+  "scaoda7m001": {
+    "nodename": ["scaoda7m001"],
+    "ilom": ["scaoda7m001-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"136",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.130.52"]
+    }
+  },
+  "rwsoda6m005": {
+    "nodename": ["rwsoda6m005"],
+    "ilom": ["rwsoda6m005-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"364",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.148"]
+    }
+  },
+  "rwsoda6s001": {
+    "nodename": ["rwsoda6s001"],
+    "ilom": ["rwsoda6s001-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"359",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.68"]
+    }
+  },
+  "rwsoda6s004": {
+    "nodename": ["rwsoda6s004"],
+    "ilom": ["rwsoda6s004-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"360",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.84"]
+    }
+  },
+  "rwsoda6s003": {
+    "nodename": ["rwsoda6s003"],
+    "ilom": ["rwsoda6s003-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "rwsoda6m001": {
+    "nodename": ["rwsoda6m001"],
+    "ilom": ["rwsoda6m001-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"366",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.180"]
+    }
+  },
+  "rwsoda6f001": {
+    "nodename": ["rwsoda6f001"],
+    "ilom": ["rwsoda6f001-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"355",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.4"]
+    }
+  },
+
+  "rwsoda6f004": {
+    "nodename": ["rwsoda6f004"],
+    "ilom": ["rwsoda6f004-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"365",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.164"]
+    }
+  },
+  "rwsoda601c1n1": {
+    "nodename": ["rwsoda601c1n1","rwsoda601c1n2"],
+    "ilom": ["rwsoda6011-c", "rwsoda6012-c"],
+    "jbod": 2,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"132",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.20.20", "10.214.20.21"]
+    }
+  },
+  "rwsoda602c1n1": {
+    "nodename": ["rwsoda602c1n1","rwsoda602c1n2"],
+    "ilom": ["rwsoda6021-c", "rwsoda6022-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"133",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.20.36", "10.214.20.37"]
+    }
+  },
+  "rwsoda606c1n1": {
+    "nodename": ["rwsoda606c1n1","rwsoda606c1n2"],
+    "ilom": ["rwsoda6061-c", "rwsoda6062-c"],
+    "jbod": 2,
+    "netmask": "255.255.248.0",
+    "vlan": {"vlanid":"145",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.20.228", "10.214.20.229"]
+    }
+  },
+  "bejoda401c1n1.cn.oracle.com": {
+    "nodename": ["bejoda401c1n1.cn.oracle.com","bejoda401c1n2.cn.oracle.com"],
+    "ilom": ["bejoda4011-c.cn.oracle.com", "bejoda4012-c.cn.oracle.com"],
+    "jbod": 2,
+    "netmask": "255.255.248.0"
+  },
+  "scaoda710c1n1": {
+    "nodename": ["scaoda710c1n1","scaoda710c1n2"],
+    "ilom": ["scaoda7101-c", "scaoda7102-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
+  "rwsoda6f003": {
+    "nodename": ["rwsoda6f003"],
+    "ilom": ["rwsoda6f003-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
+  },
+  "scaoda711c1n1": {
+    "nodename": ["scaoda711c1n1","scaoda711c1n2"],
+    "ilom": ["scaoda7111-c", "scaoda7112-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"129",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.129.196", "10.31.129.197"]
+    }
+  },
+  "rwsoda604c1n1": {
+    "nodename": ["rwsoda604c1n1","rwsoda604c1n2"],
+    "ilom": ["rwsoda6041-c", "rwsoda6042-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"135",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.20.68", "10.214.20.69"]
+    }
+  },
+  "rwsoda6m004": {
+    "nodename": ["rwsoda6m004"],
+    "ilom": ["rwsoda6m004-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0",
+    "vlan": {"vlanid":"356",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.209.10.20"]
+    }
+  },
+  "scaoda7m004": {
+    "nodename": ["scaoda7m004"],
+    "ilom": ["scaoda7m004-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"125",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.31.129.132"]
+    }
+  }
+}
