@@ -76,6 +76,12 @@
     "jbod": 1,
     "netmask": "255.255.240.0"
   },
+  "scaoda707c1n1": {
+    "nodename": ["scaoda707c1n1","scaoda707c1n2"],
+    "ilom": ["scaoda7071-c", "scaoda7072-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
   "scaoda701c1n1": {
     "nodename": ["scaoda701c1n1","scaoda701c1n2"],
     "ilom": ["scaoda7011-c", "scaoda7012-c"],
@@ -140,6 +146,12 @@
     "jbod": 1,
     "netmask": "255.255.240.0"
   },
+  "scaoda7s002": {
+    "nodename": ["scaoda7s002"],
+    "ilom": ["scaoda7s002-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0"
+  },
   "scaoda7s008": {
     "nodename": ["scaoda7s008"],
     "ilom": ["scaoda7s008-c"],
@@ -190,6 +202,12 @@
     "jbod": 1,
     "netmask": "255.255.254.0"
   },
+  "scaoda8m006": {
+    "nodename": ["scaoda8m006"],
+    "ilom": ["scaoda8m006-c"],
+    "jbod": 1,
+    "netmask": "255.255.254.0"
+  },
   "scaoda8m010": {
     "nodename": ["scaoda8m010"],
     "ilom": ["scaoda8m010-c"],
@@ -231,6 +249,12 @@
     "ilom": ["scaoda8141-c", "scaoda8142-c"],
     "jbod": 1,
     "netmask": "255.255.248.0"
+  },
+  "scaoda806c1n1": {
+    "nodename": ["scaoda806c1n1","scaoda806c1n2"],
+    "ilom": ["scaoda8061-c", "scaoda8062-c"],
+    "jbod": 1,
+    "netmask": "255.255.252.0"
   },
   "scaoda803c1n1": {
     "nodename": ["scaoda803c1n1","scaoda803c1n2"],

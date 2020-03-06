@@ -31,7 +31,9 @@ def scp_unpack_pb(host,p_v):
         remote_file = os.path.join(remote_dir, i)
         host.scp2node(scp_file, remote_file)
         cmd = "/opt/oracle/oak/bin/oakcli unpack -package %s" % remote_file
+        log.info(cmd)
         result = host.ssh2node(cmd)
+        log.info(result)
         if re.search('successful', result,re.IGNORECASE):
             host.ssh2node('rm -rf %s' % remote_file)
         else:

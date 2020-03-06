@@ -124,7 +124,8 @@ def irestore_nfs(host):
 
 
 def irestore_others(host):
-    d = "/chqin/new_test/venv/src/%s" % backupreport
+    d = "%s/%s" % (cf.scr_dir, backupreport)
+    #d = "/chqin/new_test/venv/src/%s" % backupreport
     remote_file = os.path.join(remote_dir, os.path.basename(backupreport))
     host.scp2node(d, remote_file)
     oss_name = cf.generate_string(cf.string2, 8)

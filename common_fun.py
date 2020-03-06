@@ -15,17 +15,18 @@ import oda_lib
 import pexpect
 import simplejson
 
-WORK_DIR = "/chqin/new_test/venv"
+WORK_DIR = "/home/chqin/new_test/venv"
 log_stamp = datetime.datetime.today().strftime("%Y%m%d")
 scr_dir = os.path.join(WORK_DIR, 'src')
 log_dir = os.path.join(WORK_DIR, 'result')
 script_dir = os.path.join(WORK_DIR, 'script')
 string1 = string.ascii_letters + string.digits
 string2 = string.ascii_letters + string.digits + "_"
-
-with open ('/chqin/new_test/venv/allmachine.json', 'r') as f:
+machine_file = os.path.join(WORK_DIR, 'machine.json')
+allmachine_file = os.path.join(WORK_DIR, 'allmachine.json')
+with open (allmachine_file, 'r') as f:
     host_info = simplejson.load (f)
-with open ('/chqin/new_test/venv/machine.json', 'r') as f:
+with open (machine_file, 'r') as f:
     host_notv2v3 = simplejson.load (f)
 host_all = {}
 host_all.update(host_info)

@@ -28,7 +28,7 @@ def simplejson_load(result):
     return d
 
 class Oda_ha(object):
-    Current_version = "18.8.0.0"
+    Current_version = "19.6.0.0"
     db_versions = ["11.2.0.4.191015","12.2.0.1.191015", "12.1.0.2.191015","18.8.0.0.191015"]
     ODACLI = "/opt/oracle/dcs/bin/odacli "
     old_version = ['12.1.2.8','12.1.2.8.1','12.1.2.9','12.1.2.10','12.1.2.11', '12.1.2.12', '12.2.1.1','12.2.1.2',
@@ -664,7 +664,8 @@ class Oda_ha(object):
 
 
     def crs_status(self):
-        self.scp2node('/chqin/new_test/venv/stats.sh','/tmp/stats.sh')
+        stat_file = os.path.join(cf.WORK_DIR, "stats.sh")
+        self.scp2node(stat_file,'/tmp/stats.sh')
         cmd = 'sh /tmp/stats.sh'
         result = self.ssh2node(cmd)
         return result

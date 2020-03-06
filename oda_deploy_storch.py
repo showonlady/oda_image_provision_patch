@@ -28,6 +28,7 @@ import logging
 import initlogging
 import image
 import configure_firstnet
+import oda_deploy as o_d
 log_dir = cf.log_dir
 
 def no_deploy(host):
@@ -72,17 +73,17 @@ def oda_deploy(*a):
 
 def oda_deploy_new(host, net_def):
     flag = 1
-    if not oda_deploy(host):
+    if not o_d.oda_deploy(host):
         version = host.system_version ()
         image.cleanup (host.hostname, host.username, host.password)
         time.sleep (300)
-        hostname = convert_hostname(host.hostname)
+        hostname = o_d.convert_hostname(host.hostname)
         if not hostname:
             log.error("The node is not supported %s!" % host.hostname)
             sys.exit(0)
         ips = configure_firstnet.configure_firstnet (hostname, version, False, net_def)
         host = oda_lib.Oda_ha (ips[0], "root", "welcome1")
-        if not oda_deploy(host):
+        if not o_d.oda_deploy(host):
             flag = 0
             log.error("Create appliance failed on host %s!" % host.hostname)
     if flag:
@@ -220,6 +221,7 @@ def initlog(plog):
     oda_lib.initlog(plog)
     o_p.initlog(plog)
     image.initlog(plog)
+    o_d.initlog(plog)
     configure_firstnet.initlog(plog)
     global log
     log = plog

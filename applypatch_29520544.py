@@ -56,7 +56,8 @@ def unzip(host, remote_file):
     host.ssh2node(cmd)
 
 def setupssh(host):
-    file = "/chqin/new_test/venv/src/SetupAutoSSH.sh"
+    file = os.path.join(c_f.scr_dir,"SetupAutoSSH.sh")
+    #file = "/chqin/new_test/venv/src/SetupAutoSSH.sh"
     remotefile = os.path.join("/tmp",os.path.basename(file))
     host.scp2node(file, remotefile)
     if host.is_dcs_or_oak():

@@ -22,6 +22,7 @@ import common_fun as cf
 import datetime
 import logging
 import initlogging
+import create_multiple_db as c_m_d
 log_dir = cf.log_dir
 
 
@@ -251,6 +252,7 @@ def initlogger(hostname):
 
 def initlog(plog):
     oda_lib.initlog(plog)
+    c_m_d.initlog(plog)
     global log
     log = plog
 
@@ -275,7 +277,7 @@ if __name__ == '__main__':
     cmd = "/opt/oracle/dcs/bin/odacli list-dbhomes|grep -i OraDb|wc -l"
     out, err = host.ssh2node_job(cmd)
     if int(out) < 3:
-        create_multiple_db(host)
+        c_m_d.create_multiple_db(host)
     else:
         log.info("There are aleady at least 3 dbhomes, skip create dbhome!")
         pass

@@ -46,7 +46,7 @@ import pexpect
 ver_his = ['12.1.2.8','12.1.2.8.1','12.1.2.9','12.1.2.10','12.1.2.11', '12.1.2.12', '12.2.1.1','12.2.1.2',
            '12.2.1.3', '12.2.1.4','18.1', '18.2.1']
 vm_ver_node_num = ["18.3", "18.4","18.5","18.7","18.8"]
-ver_19 = ["19.4", "19.5"]
+ver_19 = ["19.4", "19.5", "19.6"]
 log_dir = cf.log_dir
 script_dir = cf.scr_dir + "/"
 #script_dir = "/chqin/oda_test/venv/src/"
@@ -86,7 +86,12 @@ def cleanup(hostname, username, password):
         log.warn("The host %s is not reachable, could not run the cleanup!" % hostname)
         return 0
 
-    host = oda_lib.Oda_ha(hostname, username, password)
+    try:
+        host = oda_lib.Oda_ha(hostname, username, password)
+    except Exception as e:
+        log.warn("The host %s could not log in with default password, do not do the cleanup!" % hostname)
+        return 0
+
     if not host.is_dcs_or_oak():
         cmd = "perl /opt/oracle/oak/onecmd/cleanupDeploy.pl"
         logfile = cf.cleanup_deployment(host,cmd)
@@ -290,12 +295,15 @@ def image(hostname, version, vmflag):
 
     ######If the system is two jbod system, we need to set the node num
     ####This is for the w/a of 18.3 vm, all need to input the node number
+    #######For the image version is 19.4/19.4/19.6, we need to use the way to set the node number
 
-    if host_d[hostname]["jbod"] == 2 and cf.trim_version(version) not in ver_19:
+    #if host_d[hostname]["jbod"] == 2 and cf.trim_version(version) not in ver_19:
+    if host_d[hostname]["jbod"] == 2 and not re.match("19", version):
         set_node_number(ilom, imagelog)
         ##Wait the host to boot up
         time.sleep(360)
-    elif host_d[hostname]["jbod"] == 2 and cf.trim_version(version) in ver_19:
+    #elif host_d[hostname]["jbod"] == 2 and cf.trim_version(version) in ver_19:
+    elif host_d[hostname]["jbod"] == 2 and re.match("19", version):
         set_node_number_new(ilom,imagelog)
         time.sleep(120)
     elif vmflag and cf.trim_version(version)in vm_ver_node_num:
@@ -413,15 +421,6 @@ def host_reachable(hostname):
             else:
                 time.sleep(60)
     return result
-
-
-
-
-
-
-
-
-
 
 
 
