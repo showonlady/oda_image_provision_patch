@@ -67,8 +67,8 @@ def pre_patch_check(host):
         log.info(host.ssh2node(cmd6))
         log.info(host.ssh2node(cmd7))
 
-def post_unpack(host):
-    cmd1 = "/opt/oracle/oak/bin/oakcli update -patch %s -verify" % host.Current_version
+def post_unpack(host, version):
+    cmd1 = "/opt/oracle/oak/bin/oakcli update -patch %s -verify" % version
     log.info(host.ssh2node(cmd1))
 
 
@@ -102,8 +102,8 @@ def main(host, version=oda_lib.Oda_ha.Current_version):
     pre_patch_check(host2)
     scp_unpack_pb(host, version)
     scp_unpack_pb(host2, version)
-    post_unpack(host)
-    post_unpack(host2)
+    post_unpack(host, version)
+    post_unpack(host2, version)
 
 
 

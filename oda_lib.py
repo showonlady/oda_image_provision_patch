@@ -29,7 +29,7 @@ def simplejson_load(result):
 
 class Oda_ha(object):
     Current_version = "19.6.0.0"
-    db_versions = ["11.2.0.4.191015","12.2.0.1.191015", "12.1.0.2.191015","18.8.0.0.191015"]
+    db_versions = ["11.2.0.4.200114","12.2.0.1.200114", "12.1.0.2.200114","18.9.0.0.200114", "19.6.0.0.200114"]
     ODACLI = "/opt/oracle/dcs/bin/odacli "
     old_version = ['12.1.2.8','12.1.2.8.1','12.1.2.9','12.1.2.10','12.1.2.11', '12.1.2.12', '12.2.1.1','12.2.1.2',
            '12.2.1.3', '12.2.1.4','18.1', '18.2.1', '18.3', '18.4','18.5']
@@ -660,6 +660,17 @@ class Oda_ha(object):
         result1 = re.search('(\d+)', result).group()
         if int(result1) < 60:
             cmd2 = "lvextend -L +60G /dev/VolGroupSys/LogVolOpt;resize2fs /dev/VolGroupSys/LogVolOpt"
+            self.ssh2node(cmd2)
+
+    def extend_tmp(self):
+        cmd1 = "df -h /tmp|awk 'NR>2 {print $1}'"
+        result = self.ssh2node(cmd1)
+        if not result:
+            cmd2 = "df -h /tmp|awk 'NR>1 {print $2}'"
+            result = self.ssh2node(cmd2)
+        result1 = re.search('(\d+)', result).group()
+        if int(result1) < 31:
+            cmd2 = "lvextend -L +20G /dev/VolGroupSys/LogVolRoot;resize2fs /dev/VolGroupSys/LogVolRoot"
             self.ssh2node(cmd2)
 
 

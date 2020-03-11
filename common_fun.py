@@ -170,6 +170,15 @@ def extend_space_opt(host):
         host2 = oda_lib.Oda_ha(node2, host.username, host.password)
         host2.extend_opt()
 
+def extend_space_tmp(host):
+    if host.is_vm_or_not():
+        log.info("We could not extend the space of tmp on VM stack!")
+        return 0
+    host.extend_tmp()
+    if host.is_ha_not():
+        node2 = node2_name(host.hostname)
+        host2 = oda_lib.Oda_ha(node2, host.username, host.password)
+        host2.extend_tmp()
 
 
 def node2_name(a):
@@ -229,6 +238,14 @@ def add_line_ecthosts(host):
 def covertlog(logname):
     cmd = "dos2unix -q %s" % logname
     exc_cmd(cmd)
+
+def equal_version(host, version):
+    s_v = host.system_version()
+    s_v = trim_version(s_v)
+    if trim_version(version) == s_v:
+        return 1
+    else:
+        return 0
 
 
 def run_expect_dbhome(*a):

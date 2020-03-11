@@ -360,6 +360,16 @@
       "vlanip": ["10.214.20.36", "10.214.20.37"]
     }
   },
+  "rwsoda609c1n1": {
+    "nodename": ["rwsoda609c1n1","rwsoda609c1n2"],
+    "ilom": ["rwsoda6091-c", "rwsoda6092-c"],
+    "jbod": 1,
+    "netmask": "255.255.240.0",
+    "vlan": {"vlanid":"140",
+      "vlannetmask": "255.255.255.240",
+      "vlanip": ["10.214.20.148", "10.214.20.149"]
+    }
+  },
   "rwsoda606c1n1": {
     "nodename": ["rwsoda606c1n1","rwsoda606c1n2"],
     "ilom": ["rwsoda6061-c", "rwsoda6062-c"],

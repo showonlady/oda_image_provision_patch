@@ -107,7 +107,11 @@ def cleanup(hostname, username, password):
 
         if host.is_ha_not():
             node2name = cf.node2_name(hostname)
-            host2 = oda_lib.Oda_ha(node2name, username, password)
+            try:
+                host2 = oda_lib.Oda_ha(node2name, username, password)
+            except Exception as e:
+                log.warn ("The host %s could not log in with default password, do not do the cleanup!" % node2name)
+                return 0
             # result = oak_cleanup(host, cmd)
             # log.info(result)
             logfile = cf.cleanup_deployment (host, cmd)

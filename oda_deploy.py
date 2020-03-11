@@ -185,6 +185,7 @@ def json_file(x):
 
 
 def scpfile(host,server_loc, remote_dir ):
+    cf.extend_space_tmp(host)
     for i in os.listdir(server_loc):
         if not i:
             sys.exit(1)

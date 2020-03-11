@@ -14,12 +14,14 @@
 #
 #    MODIFIED   (MM/DD/YY)
 #    chqin    01/10/19 - Creation
+#    chqin    03/10/20 - Modified, add two new options for the patch, add 18.7/18.8 as the base version
+
 #
 
 """
 Usage:
     oak_deploy_patch_patch.py -h
-    oak_deploy_patch_patch.py [nopatch] -s <servername> [-u <username>] [-p <password>]
+    oak_deploy_patch_patch.py [nopatch] -s <servername> [-u <username>] [-p <password>] [--to_version <version>] [--base_version <187_188>]
 
 Options:
     -h,--help       Show this help message
@@ -27,7 +29,10 @@ Options:
     -u <username>  username [default: root]
     -p <password>  password [default: welcome1]
     nopatch    Don't do the patch, only prepare the environment
+    --to_version <version>   The version number you want to patch
+    --base_version <187_188>   The version number you want to be base, 18.7 or 18.8 [default: 18.7.0.0]
 """
+
 from docopt import docopt
 import oak_patch
 import oak_deploy
@@ -113,7 +118,7 @@ def create_db(host):
     else:
         log.info("There are %s databases, will not create databases!" % int(out))
 
-def deploy_patch(host, nopatchflag = False):
+def deploy_patch(host, nopatchflag = False,version = oda_lib.Oda_ha.Current_version, base_version = "18.7.0.0"):
     if host.is_dcs_or_oak():
         log.warn("This is an dcs stack, please run 'python deploy_patch_patch.py' to do the patch!")
         sys.exit(0)
@@ -127,11 +132,11 @@ def deploy_patch(host, nopatchflag = False):
             host = oda_lib.Oda_ha(host.hostname, host.username, host.password)
         log.info("Will create multiple databases on host %s!" % host.hostname)
         create_db(host)
-        if not host.is_latest_or_not():
+        if not cf.equal_version(host, version):
             log.info("Will patch the system!")
-            oak_patch.main(host, nopatchflag)
+            oak_patch.main(host, nopatchflag, version, base_version)
         else:
-            log.info("The system is already the latest version!")
+            log.info("The system is already the version %s!" % version)
 
 
 def initlogger(hostname):
@@ -169,5 +174,11 @@ if __name__ == '__main__':
     nopatchflag = arg['nopatch']
     log_management (hostname)
     host = oda_lib.Oda_ha (hostname, username, password)
-    deploy_patch(host, nopatchflag)
+    if arg['--to_version']:
+        to_version = arg["--to_version"]
+    else:
+        to_version = oda_lib.Oda_ha.Current_version
+    base_version = arg["--base_version"]
+
+    deploy_patch(host, nopatchflag, to_version, base_version)
     print "Done, please check the log %s for details!" % logfile

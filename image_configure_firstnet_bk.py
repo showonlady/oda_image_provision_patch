@@ -15,15 +15,14 @@
 #
 #    MODIFIED   (MM/DD/YY)
 #    chqin    04/07/18 - Creation
-#    chqin    03/10/20 - Modified, add two new options for the patch, add 18.7/18.8 as the base version
 #
 
 
 """
 Usage:
     image_configure_firsnet.py  -s <servername> -v <version> [-u <username>] [-p <password>] [--vm] [--network <vlan>]
-    image_configure_firsnet.py [nocleanup] [nodeploy] -s <servername> -v <version> [-u <username>] [-p <password>] [--vm] [--network <vlan>] [--to_version <version>] [--base_version <187_188>]
-    image_configure_firsnet.py [nocleanup] [nopatch] -s <servername> -v <version> [-u <username>] [-p <password>] [--network <vlan>][--vm] [--to_version <version>] [--base_version <187_188>]
+    image_configure_firsnet.py [nocleanup] [nodeploy] -s <servername> -v <version> [-u <username>] [-p <password>] [--vm] [--network <vlan>]
+    image_configure_firsnet.py [nocleanup] [nopatch] -s <servername> -v <version> [-u <username>] [-p <password>] [--network <vlan>][--vm]
 
 Options:
     -h,--help       Show this help message
@@ -35,9 +34,7 @@ Options:
     nodeploy   Don't do the deploy
     nopatch    Don't do the patch, only prepare the environment
     nocleanup  Don't run cleanup script before reimage
-    --network <vlan>   network type, vlan, bonding, nonbonding [default: bonding]
-    --to_version <version>   The version number you want to patch
-    --base_version <187_188>   The version number you want to be base, 18.7 or 18.8 [default: 18.7.0.0]
+    --network <vlan>   network type, vlan, bonding, nonbonding
 
 """
 
@@ -94,15 +91,6 @@ def main(arg):
     nopatchflag = arg['nopatch']
     image.is_node_support(hostname)
     log_management(hostname)
-    if arg['--to_version']:
-        to_version = arg["--to_version"]
-    else:
-        to_version = oda_lib.Oda_ha.Current_version
-    base_version = arg["--base_version"]
-    if cf.trim_version(base_version) not in ["18.7", "18.8"]:
-        log.error("The base version should be 18.7 or 18.8!")
-        sys.exit(0)
-
     if not nocleanup:
         image.cleanup(hostname, username, password)
         time.sleep(300)
@@ -127,18 +115,18 @@ def main(arg):
         #     host = oda_lib.Oda_ha (hostname, "root", "welcome1")
         #     oak_create_db.main(host)
         #     o_p.main(host, nopatchflag)
-        o_d_p_p.deploy_patch(host, nopatchflag, to_version, base_version)
+        o_d_p_p.deploy_patch(host, nopatchflag)
     elif not configure_firstnet.is_dcs(hostname, version):
         log.info("This host is OAK stack, will continue to deploy %s to %s!" % (ips[0], version))
         # if oak_deploy.oak_deploy(host):
         #     oak_create_db.main(host)
         #     o_p.main(host, nopatchflag)
-        o_d_p_p.deploy_patch(host, nopatchflag, to_version, base_version)
+        o_d_p_p.deploy_patch(host, nopatchflag)
 
     else:
         log.info("Will do the provision and patch to latest version!")
         time.sleep(300)
-        d_p_p.provision_patch2(host, nopatchflag, to_version, base_version)
+        d_p_p.provision_patch2(host, nopatchflag)
 #    cf.closefile(fp, out, err)
     print "Finish, please check the log %s for details!, the host ips are:" % logfile
     print ips

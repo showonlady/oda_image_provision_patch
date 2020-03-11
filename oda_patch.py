@@ -29,6 +29,9 @@ log_dir = cf.log_dir
 patch_version = ['12.1.2.8','12.1.2.8.1','12.1.2.9','12.1.2.10','12.1.2.11', '12.1.2.12','12.2.1.1','12.2.1.2','12.2.1.3','12.2.1.4',"18.3", "18.5" ]
 
 def scpfile(host, remote_dir, server_loc):
+    if len(os.listdir(server_loc)) == 0:
+        log.error ("No patch zip found!")
+        sys.exit (1)
     for i in os.listdir(server_loc):
         if not i:
             sys.exit(1)
@@ -126,6 +129,8 @@ def update_server(host, version):
             time.sleep(600)
             hostname2 = cf.node2_name(host.hostname)
             cf.wait_until_ping(hostname2)
+            if cf.trim_version (version) == "18.8":
+                host.stop_tfa ()
             if not host.update_server("-v %s -n 0" % version):
                 flag = 0
                 log.error("update server with '-v -n 0' fail!")
@@ -364,6 +369,9 @@ def simple_update_server(host,version):
     if not host.update_server("-v %s" % version):
         log.error("update server with '-v' fail!")
         sys.exit(0)
+    else:
+        print "Successfully update server to %s!" % version
+        log.info("Successfully update server to %s!" % version)
     log.info("*" * 20 + "server patch finish" + "*" * 20)
 
 def simple_update_dbhome(host,version):

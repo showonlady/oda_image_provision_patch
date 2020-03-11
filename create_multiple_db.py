@@ -76,8 +76,11 @@ dbclone={"12.1.0.2.170117" : "oda-sm-12.1.2.10.0-170205-DB-12.1.0.2.zip",
 "12.1.0.2.191015" : "odacli-dcs-18.8.0.0.0-191118-DB-12.1.0.2.zip",
 "12.2.0.1.191015" : "odacli-dcs-18.8.0.0.0-191118-DB-12.2.0.1.zip",
 "18.8.0.0.191015" : "odacli-dcs-18.8.0.0.0-191201-DB-18.8.0.0.zip",
-"19.6.0.0.200114" : "odacli-dcs-19.6.0.0.0-200114-DB-19.6.0.0.zip"
-
+"19.6.0.0.200114" : "odacli-dcs-19.6.0.0.0-200306-DB-19.6.0.0.zip",
+"11.2.0.4.200114" : "odacli-dcs-19.6.0.0.0-200306-DB-11.2.0.4.zip",
+"12.1.0.2.200114" : "odacli-dcs-19.6.0.0.0-200306-DB-12.1.0.2.zip",
+"12.2.0.1.200114" : "odacli-dcs-19.6.0.0.0-200306-DB-12.2.0.1.zip",
+"18.9.0.0.200114" : "odacli-dcs-19.6.0.0.0-200306-DB-18.9.0.0.zip"
 }
 
 d_version={
@@ -179,7 +182,12 @@ def db_op(host,version):
 
 
     if host.is_ha_not():
-        dbtype = random.choice(['RAC', 'RACONE', 'SI'])
+        ##From 19.6, we only support SE SI for 19c db, no rac/racone any more
+        if de == "SE" and not re.match("11.2|12|18", version):
+            dbtype = "SI"
+        else:
+            dbtype = random.choice(['RAC', 'RACONE', 'SI'])
+
     else:
         dbtype = 'SI'
     storage = random.choice(['ACFS', 'ASM'])
